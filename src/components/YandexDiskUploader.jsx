@@ -4,7 +4,7 @@ import axios from 'axios';
 const YandexDiskUploader = () => {
     const [selectedFiles, setSelectedFiles] = useState([]);
     const [isUploading, setIsUploading] = useState(false);
-    const accessToken = 'YOUR_YANDEX_ACCESS_TOKEN';
+    const [accessToken, setAccessToken] = useState('')
     const handleFileInputChange = (event) => {
         const files = event.target.files;
         setSelectedFiles([...selectedFiles, ...files]);
@@ -60,6 +60,10 @@ const YandexDiskUploader = () => {
     return (
         <div>
             <h1>Загрузка файлов на Яндекс.Диск</h1>
+            <div>
+                <h3>Вставьте ваш токен</h3>
+                <input type={'password'} onChange={(e) => setAccessToken(e.target.value)}/>
+            </div>
             <input type="file" multiple onChange={handleFileInputChange} />
             <button onClick={handleUploadFiles} disabled={isUploading}>
                 {isUploading ? 'Загрузка...' : 'Загрузить'}
