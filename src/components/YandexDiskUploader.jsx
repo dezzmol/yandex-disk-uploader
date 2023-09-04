@@ -62,7 +62,7 @@ const YandexDiskUploader = () => {
             <h1>Загрузка файлов на Яндекс.Диск</h1>
             <div>
                 <h3>Вставьте ваш токен</h3>
-                <input type={'password'} onChange={(e) => setAccessToken(e.target.value)}/>
+                <input type={'password'} onChange={(e) => setAccessToken(e.target.value)} style={{marginBottom: '20px'}}/>
             </div>
             <input type="file" multiple onChange={handleFileInputChange} />
             <button onClick={handleUploadFiles} disabled={isUploading}>
